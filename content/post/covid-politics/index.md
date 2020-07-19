@@ -1,0 +1,72 @@
+---
+title: Politics of the Pandemic in the U.S. 
+author: Kiegan Rice
+date: '2020-07-20'
+slug: covid-politics
+categories: []
+tags:
+  - ggplot2
+  - geofacet
+  - covid19
+  - politics
+image:
+  caption: ''
+  focal_point: Right
+  preview_only: yes
+math: true
+---
+
+In the midst of a global pandemic, the United States seems transfixed on opinions about the health crisis: what is the media saying? What are politicians saying? What does my neighbor say? What does that person on Twitter say?  
+
+Right now it's mid-July, and we're about a month out from when schools all across the country would typically resume classes for the fall. There is a constant flurry of reports, opinions, media, and thoughts on re-opening schools and *how soon we will be back to normal*. It can be hard to process all the information thrown at us; especially when so much of it feels politically-charged. So I thought I'd sit down and take a look a the current state of affairs in the U.S. - and why an ongoing public health crisis feels so *political*.  
+
+**Disclaimer: I am not an epidemiologist and I do not claim that anything I present here should be considered scientific evidence. I did not do any statistical modeling or testing with the data presented here.**   
+
+The number of cases has been drastically increasing in the U.S. throughout the past month, with Florida [recently being called "the epicenter of the the virus"](https://www.npr.org/sections/coronavirus-live-updates/2020/07/14/890756801/miami-is-becoming-the-epicenter-of-the-pandemic-expert-warns) and compared to the initial outbreak in Wuhan, China. Some are referring to this as the second wave of the virus; however, on a national level, *we never actually completed a "first wave"*:    
+
+![](/post/covid-politics/covid-cases-us.png)
+
+
+Nevertheless, many states have entered stages of "re-opening", with many progressing through phased plans to allow resumption of normal public activities. This relaxing of guidelines and restrictions has now been met with a massive increase in cases within the United States.  
+
+During the initial wave of cases in the U.S., in mid-March, state-by-state approaches were somewhat effective in curbing further growth. States with higher population density and more aggressive spread took more drastic measures, while more sparsely populated states with low numbers of cases and deaths took less aggressive approaches. The governor of Iowa, while closing or restricting restaurants, bars, and non-essential businesses, never enacted a "stay at home" order, stating repeatedly that it was not needed to curb the virus in Iowa.  
+
+For the most part, the state-by-state approach on closures and state mandates (such as mask orders) seemed to slow exponential growth across the board. Nationally, cases were leveled off and somewhat decreasing. However, the state-by-state approach to reopening and the approach and rhetoric of the Trump administration has led to stark divisions across political party lines, both at the state government level and the general population in the United States.  
+
+You've probably observed partisan divides growing steeper with regards to Covid-19 on social media, or maybe had the thought, "it seems like this is getting worse". *It's not just in your head*.   
+
+The Pew Research Center recently published an article titled ["Republicans, Democrats Move Even Further Apart in Coronavirus Concerns"](https://www.pewresearch.org/politics/2020/06/25/republicans-democrats-move-even-further-apart-in-coronavirus-concerns/), using data from a June 2020 survey of adults in the United States. According to survey results, the majority (61%) of Republican or Republican-leaning respondents say that the "worst is behind us" in the coronavirus outbreak, while the minority (23%) of Democrat or Democrat-leaning respondents hold that same belief. A minority (45%) of Republican or Republican-leaning respondents said they were very or somewhat concerned they might unknowingly spread COVID-19 to others, as opposed to the majority (77%) of Democrat or Democrat-leaning respondents.  
+    
+
+This difference in opinion by political party is reflected in the ongoing surge of cases across states. We can look at the curve of daily cases reported aggregated across states with either Republican or Democratic governors, and observe two differing trends. When aggregated by party, cases are increasing more drastically in states with Republican governors than those with Democratic governors. Additionally, the decrease seen in April and May is present primarily for those with Democratic governors, while states with Republican governers never saw a major downtick in cases.  
+
+![](/post/covid-politics/daily-cases-grouped-by-party.png)
+
+Governors are not a monolith according to party; different governors have had different responses and taken different actions. Using the `geofacet` package in R, we observe individual state trends displayed by approximate geographic location in the U.S.:  
+
+![](/post/covid-politics/case-curve-by-governor-party-resized.png)
+
+While coloring by governor party illuminates some differences in the current case trends, governing decisions are far from the only variable at play; how each state's residents react and respond to news and governing decisions also has an impact. So instead of looking at party of individual governors, we investigate the state populace as a whole and how far to either party the state leans. We use the margin of Trump's victory in 2016 as a proxy. A positive value (red) indicates Trump won that state, while a negative value (blue) indicates Clinton won that state. 
+
+![](/post/covid-politics/case-curve-by-trump-margin-dc-corrected-resized.png)  
+
+We see that Northeastern states which voted Democrat in 2016 have mostly ended the "first wave" and reduced cases. Some Southeastern states which voted more Republican in 2016 are some of those experiencing the largest increases this summer, though Florida and Arizona have the most drastic case increases and both had minor partisan lean in 2016.  
+
+Some Democratic-leaning western states, such as California, Oregon, and Washington are also experiencing increases in cases this summer. This may be due to the presence of differing strains of the virus in the United States: though there is [some disagreement in the scientific community, there have been reports](https://www.scientificamerican.com/article/second-coronavirus-strain-may-be-more-infectious-but-some-scientists-are-skeptical/) of a more infectious strain originating from Europe and a less infectious strain originating from Asia. The spread of COVID-19 on the West Coast earlier may have been partially slowed by originating from a less infectious strain, and it is possible that with loosening restrictions and more free travel between states, the more infectious strain has reached more widely across the U.S. now.  
+
+Regional differences in fatality rate also support the idea of differing strains: 
+
+![](/post/covid-politics/death-rate-by-total-population-greyscale-resized.png)  
+
+A white dotted line is placed at 1%, the [frequently reported estimate of fatality rate](https://www.nature.com/articles/d41586-020-01738-2). Most states in this graphic are above this threshold, though it should be noted that this may be due to differences in testing policies, testing criterion, case and death reporting, and asymptomatic spread by state. It is unlikely the denominator of "positive tests" fully represents the number of COVID-19 cases in the U.S. However, there is a regional difference in death rate trends: States on the Eest Coast and in the Midwest have consistently higher rates of mortality than those on the West Coast.  
+
+So, what does this all mean? Well, this is all observational and based on reported data, which differs by state. But there are several things we can learn about how our country is responding to - and consequently encountering - the Covid-19 pandemic.  
+
+Partisanship in leadership, as well as partisanship in residents' beliefs about the virus, seems to affect how well a state can get the spread under control and how quickly a state can spiral out of control. The Pew Research Center study also reported partisan differences in beliefs about mask-wearing and attending public events or going to public places. These differences are somewhat reflected case counts - states with more Republican lean are currently seeing bigger upticks in the spread of the virus.  
+
+So as our country debates sending kids (and teachers and staff) back to school this fall, we must contend with the fact that states with political lean one way or the other may take different approaches. But success in reducing the spread, flattening the case curve, and having a safe environment for kids (and teachers and staff) also depends on the state's residents, and their attitudes and actions in response to the pandemic. The best laid plans may not matter if a majority of people in your community don't believe masks are needed in public places, aren't concerned about spreading the virus to loved ones, and are comfortable going into public spaces.  
+
+Only time will tell how we as a nation respond to this crisis, and whether we can get the spread under control to reduce further illness and death. And sadly, the response to the crisis in our country has become fractured, seemingly along party lines. We can only hope that at some point our leaders can put the politics aside and focus on governing and messaging which puts the people first. If these trends bother you, or you don't like the COVID-19 response happening locally, state-wide, or nationally... [make sure you are registered to vote](https://www.vote.org/) and make your vote count.  
+
+
+    

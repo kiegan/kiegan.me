@@ -1,0 +1,25 @@
+# Theme metadata
+name = "my_theme"
+
+# color scheme 
+# {"goldenrod2":"#EEB422","grey":"#696969","darkred":"#8B0000", "lightgrey": "#DDDDDD"}
+
+# Is theme light or dark?
+light = true
+
+# Primary
+primary = "#696969"
+
+# Menu
+menu_primary = "#696969"
+menu_text = "#FFFFFF"
+menu_text_active = "#EEB422"
+menu_title = "#FFFFFF"
+
+# Home sections
+home_section_odd = "#FFF"
+home_section_even = "#DDDDDD"
+
+# Links? 
+link = "#EEB422"
+link_hover = "#EEB422"
