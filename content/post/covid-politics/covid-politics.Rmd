@@ -1,7 +1,7 @@
 ---
-title: Politics of the Pandemic in the U.S. 
+title: 'Politics of the Pandemic in the U.S.'
 author: Kiegan Rice
-date: '2020-07-19'
+date: '2020-07-20'
 slug: covid-politics
 categories: []
 tags:
@@ -9,12 +9,14 @@ tags:
   - geofacet
   - covid19
   - politics
-image:
-  caption: ''
-  focal_point: Right
-  preview_only: yes
-math: true
+description: ''
+featured: ''
+linktitle: ''
+image: 
+  name: 'featured.jpg'
 ---
+
+
 
 In the midst of a global pandemic, the United States seems transfixed on opinions about the health crisis: what is the media saying? What are politicians saying? What does my neighbor say? What does that person on Twitter say?  
 
