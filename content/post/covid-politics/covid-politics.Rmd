@@ -1,7 +1,7 @@
 ---
 title: 'Politics of the Pandemic in the U.S.'
 author: Kiegan Rice
-date: '2020-07-20'
+date: '2020-07-19'
 slug: covid-politics
 categories: []
 tags:
